@@ -7,14 +7,17 @@ partial class Program
 {
     static void Main()
     {
-        Bitmap fingerprintImage = new Bitmap("sample/sample1.bmp");
+        Bitmap fingerprintImage1 = new Bitmap("sample/sample1.bmp");
+        Bitmap fingerprintImage2 = new Bitmap("sample/sample2.bmp");
 
-        string binaryString = BMPToBinaryString(fingerprintImage);
+        string binaryString1 = BMPToBinaryString(fingerprintImage1);
+        string binaryString2 = BMPToBinaryString(fingerprintImage2);
 
-        string ascii = BinaryStringToAscii(binaryString);
+        string ascii1 = BinaryStringToAscii(binaryString1);
+        string ascii2 = BinaryStringToAscii(binaryString2);
 
-        File.WriteAllText("result.txt", ascii);
-
-        Console.WriteLine("Hasil telah ditulis ke dalam file result.txt");
+        double sim = KMP(ascii1, ascii2);
+        
+        Console.WriteLine("kemiripannya adalah " + sim);
     }
 }
