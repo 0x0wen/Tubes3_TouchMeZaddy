@@ -9,28 +9,12 @@ partial class Program
     {
         Bitmap fingerprintImage = new Bitmap("sample/sample1.bmp");
 
-        string binaryString = ConvertToBinaryString(fingerprintImage);
+        string binaryString = BMPToBinaryString(fingerprintImage);
 
-        File.WriteAllText("result.txt", binaryString);
+        string ascii = BinaryStringToAscii(binaryString);
+
+        File.WriteAllText("result.txt", ascii);
 
         Console.WriteLine("Hasil telah ditulis ke dalam file result.txt");
-    }
-
-    static string ConvertToBinaryString(Bitmap image)
-    {
-        StringBuilder binaryStringBuilder = new StringBuilder();
-
-        for (int y = 0; y < image.Height; y++)
-        {
-            for (int x = 0; x < image.Width; x++)
-            {
-                Color pixel = image.GetPixel(x, y);
-                int pixelValue = (pixel.R + pixel.G + pixel.B) / 3;
-                char binaryChar = pixelValue > 128 ? '1' : '0';
-                binaryStringBuilder.Append(binaryChar);
-            }
-        }
-
-        return binaryStringBuilder.ToString();
     }
 }

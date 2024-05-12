@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ef9vAeApr/I+HOQnBmjFh7daUkOmdLfOCeOQaKh+EmrOCAuzZ7ndE0kEzqG1qujz6uFFE1xWBNBM+wH7MS7YJg==",
+  "dgSpecHash": "ojpH5v3RDkozxKo6rGCpCMqZreLiY/l3DTgKjt7pY16qf+ztg9GIsKouPTzWsBc82ZTiGt8znN59/garXhlyXA==",
   "success": true,
-  "projectFilePath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
+  "projectFilePath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",

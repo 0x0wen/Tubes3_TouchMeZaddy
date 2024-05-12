@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj": {}
+    "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj": {}
   },
   "projects": {
-    "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj": {
+    "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
+        "projectUniqueName": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
         "projectName": "TouchMeZaddy.Core",
-        "projectPath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
+        "projectPath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\TouchMeZaddy.Core.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\TouchMeZaddy.Core\\obj\\",
+        "outputPath": "C:\\Ea\\coolyeah\\semester 4\\KULIAH BENERAN\\stima\\tubes 3\\logic\\repow\\Tubes3_TouchMeZaddy\\TouchMeZaddy.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
