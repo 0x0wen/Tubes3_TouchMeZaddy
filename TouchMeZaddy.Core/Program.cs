@@ -30,6 +30,6 @@ partial class Program
         stopwatch.Stop();
 
         Console.WriteLine("\nkemiripan yang paling mirip adalah dengan sampel ke-" + idx + " dengan kemiripan " + max + " persen");
-        Console.WriteLine("Waktu yang dibutuhkan: "+ stopwatch.ElapsedMilliseconds/1000 + " detik");
+        Console.WriteLine("Waktu yang dibutuhkan: " + stopwatch.ElapsedMilliseconds/1000 + " detik");
     }
 }
