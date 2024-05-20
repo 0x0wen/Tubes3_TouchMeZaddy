@@ -61,10 +61,15 @@ partial class Program
                     string searchBinary = BMPToBinaryString(searchImage);
                     string searchAscii = BinaryStringToAscii(searchBinary);
                     float distanceTemp = 0;
-                    for (int j = -5; j <= 5; j++) {
+
+                    // tuning variabel
+                    // jgn lebih besar dari targetImage.Height/2
+                    // value yg dh pernah kucoba tuh 50, 25, 10, 5
+                    int tuning = 5;
+                    for (int j = -tuning; j <= tuning; j++) {
                         targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2 + targetImage.Width*j - targetImage.Width*4/10, targetImage.Width*8/10));
                         int dist = LevenshteinDistance(targetAscii, searchAscii);
-                        distanceTemp += (float)((searchAscii.Length - dist)/targetAscii.Length * 100)/10;
+                        distanceTemp += (float)((searchAscii.Length - dist)/targetAscii.Length * 100)/(tuning*2);
                     }
                     if (distance == -1) {
                         distance = distanceTemp;

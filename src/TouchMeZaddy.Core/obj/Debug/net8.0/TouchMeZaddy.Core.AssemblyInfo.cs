@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TouchMeZaddy.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4aa0091129d225eb7aa14cb929f5d6fd2cf44644")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba3b3ac9d22806e1db6ee60d37d333ed9ee15504")]
 [assembly: System.Reflection.AssemblyProductAttribute("TouchMeZaddy.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TouchMeZaddy.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
