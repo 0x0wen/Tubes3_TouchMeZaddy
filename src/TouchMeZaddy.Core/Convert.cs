@@ -30,7 +30,6 @@ partial class Program
     static string BMPToBinaryString(Bitmap image)
     {
         StringBuilder binaryStringBuilder = new StringBuilder();
-
         for (int y = 0; y < image.Height; y++)
         {
             for (int x = 0; x < image.Width; x++)

@@ -2,77 +2,59 @@
 
 partial class Program
 {
-    public static double KMP(string text1, string text2)
+    public static int KmpMatch(string text, string pattern)
     {
-        if (text1 == null || text2 == null)
-            throw new ArgumentNullException("Input strings cannot be null.");
-
-        if (text1.Length == 0 || text2.Length == 0)
-            return 0.0;
-
-        int[] lps = ComputeLPSArray(text2);
-
-        int matchedChars = 0;
-        int i = 0, j = 0;
-        while (i < text1.Length)
+        int n = text.Length;
+        int m = pattern.Length;
+        int[] b = ComputeBorder(pattern);
+        int i = 0;
+        int j = 0;
+        while (i < n)
         {
-            if (text1[i] == text2[j])
+            if (pattern[j] == text[i])
             {
+                if (j == m - 1)
+                    return i - m + 1;
                 i++;
                 j++;
-                matchedChars++;
             }
-
-            if (j == text2.Length)
+            else if (j > 0)
             {
-                j = lps[j - 1];
-            }
-            else if (i < text1.Length && text1[i] != text2[j])
-            {
-                if (j != 0)
-                {
-                    j = lps[j - 1];
-                }
-                else
-                {
-                    i++;
-                }
-            }
-        }
-
-        double similarity = (double)matchedChars / (double)Math.Max(text1.Length, text2.Length);
-        return similarity * 100.0;
-    }
-
-    private static int[] ComputeLPSArray(string pattern)
-    {
-        int[] lps = new int[pattern.Length];
-        int len = 0;
-        int i = 1;
-        lps[0] = 0;
-
-        while (i < pattern.Length)
-        {
-            if (pattern[i] == pattern[len])
-            {
-                len++;
-                lps[i] = len;
-                i++;
+                j = b[j - 1];
             }
             else
             {
-                if (len != 0)
-                {
-                    len = lps[len - 1];
-                }
-                else
-                {
-                    lps[i] = 0;
-                    i++;
-                }
+                i++;
             }
         }
+        return -1;
+    }
 
-        return lps;
+    public static int[] ComputeBorder(string pattern)
+    {
+        int[] b = new int[pattern.Length];
+        b[0] = 0;
+        int m = pattern.Length;
+        int j = 0;
+        int i = 1;
+        while (i < m)
+        {
+            if (pattern[j] == pattern[i])
+            {
+                b[i] = j + 1;
+                i++;
+                j++;
+            }
+            else if (j > 0)
+            {
+                j = b[j - 1];
+            }
+            else
+            {
+                b[i] = 0;
+                i++;
+            }
+        }
+        return b;
     }
 }
