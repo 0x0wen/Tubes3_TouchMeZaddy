@@ -43,4 +43,38 @@ partial class Program
 
         return binaryStringBuilder.ToString();
     }
+
+    static Bitmap Resize(Bitmap small, Bitmap big)
+    {
+        // Get the dimensions of the small image
+        int smallWidth = small.Width;
+        int smallHeight = small.Height;
+
+        // Get the dimensions of the big image
+        int bigWidth = big.Width;
+        int bigHeight = big.Height;
+
+        // Calculate the aspect ratio of the big image
+        double aspectRatio = (double)bigWidth / bigHeight;
+
+        // Calculate new dimensions for the big image
+        int newWidth, newHeight;
+        if (aspectRatio > 1)
+        {
+            // Landscape orientation
+            newWidth = smallWidth;
+            newHeight = (int)(smallWidth / aspectRatio);
+        }
+        else
+        {
+            // Portrait orientation
+            newHeight = smallHeight;
+            newWidth = (int)(smallHeight * aspectRatio);
+        }
+
+        // Resize the big image
+        Bitmap resizedBitmap = new Bitmap(big, new Size(newWidth, newHeight));
+        
+        return resizedBitmap;
+    }
 }

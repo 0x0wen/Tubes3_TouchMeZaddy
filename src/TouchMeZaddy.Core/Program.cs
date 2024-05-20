@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading.Tasks.Dataflow;
 using System.Runtime.Intrinsics.X86;
 using System.Runtime.Intrinsics.Arm;
+using System.Reflection;
 
 partial class Program
 {
@@ -13,65 +14,76 @@ partial class Program
     {
         Console.WriteLine("Masukkan id gambar sampel yang ingin dijadikan referensi");
         int id = Convert.ToInt32(Console.ReadLine());
-        Bitmap targetImage = new Bitmap("./sample/sample (" + id + ").bmp");
+        Bitmap targetImage = new Bitmap("./../../test/sample (" + id + ").bmp");
         string targetBinary = BMPToBinaryString(targetImage);
-        string targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2, 32));
+        string targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2 - targetImage.Width*4/10, targetImage.Width*8/10)); // panjang biner / 8 = panjang ascii
 
         int exactIdx = -1;
         int notExactIdx = -1;
-        int distance = -1;
-        System.Console.WriteLine("Pencarian dengan KMP dimulai");
+        float distance = -1;
+        Console.WriteLine("Pencarian dengan KMP dimulai");
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         for (int i = 1; i <= 6000; i++) {
-            // if (i == id) {
-            //     continue;
-            // }
-            // else {
-                Bitmap searchImage = new Bitmap("sample/sample (" + i + ").bmp");
-                System.Console.WriteLine("ngecek sampel ke-" + i);
+            if (i == id) {
+                continue;
+            }
+            else {
+                Bitmap searchImage = new Bitmap("../../test/sample (" + i + ").bmp");
+                if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
+                    continue;
+                }
+                searchImage = Resize(targetImage, searchImage); // normalisasi
+                // Console.WriteLine("ngecek sampel ke-" + i);
                 string searchAscii = BinaryStringToAscii(BMPToBinaryString(searchImage));
-                int result = KmpMatch(searchAscii, targetAscii);
+                int result = KmpMatch(searchAscii, targetAscii); // kalo mau bm tinggal ubah jadi bmmatch
                 if (result != -1) {
                     exactIdx = i;
                     break;
                 }
-            // }
+            }
         }
-        // if (exactIdx == -1) {
-        //     Console.WriteLine("Exact match tidak ditemukan");
-        //     Console.WriteLine("Mengulangi pencarian dengan Levenshtein");
-        //     for (int i = 1; i <= 6000; i++) {
-        //         if (i == id) {
-        //             continue;
-        //         }
-        //         else {
-        //             Bitmap searchImage = new Bitmap("sample/sample (" + i + ").bmp");
-        //             // System.Console.WriteLine("ngecek sampel ke-" + i);
-        //             string searchBinary = BMPToBinaryString(searchImage);
-        //             string searchAscii = BinaryStringToAscii(searchBinary.Substring(searchBinary.Length/2, 32));
-        //             // int temp = LevenshteinFullMatrix(targetAscii, searchAscii, targetAscii.Length, searchAscii.Length);
-        //             // int temp = LevenshteinTwoMatrixRows(targetAscii, searchAscii);
-        //             int temp = LevenshteinTwoMatrixRows(targetBinary.Substring(targetBinary.Length/2, 32), searchBinary.Substring(searchBinary.Length/2, 32));
-        //             Console.WriteLine(temp);
-        //             if (distance == -1) {
-        //                 distance = temp;
-        //             }
-        //             if (temp < distance) {
-        //                 distance = temp;
-        //                 notExactIdx = i;
-        //             }
-        //         }
-        //     }
-        // }
+        if (exactIdx == -1) {
+            Console.WriteLine("Exact match tidak ditemukan");
+            Console.WriteLine("Mengulangi pencarian dengan Levenshtein");
+            for (int i = 1; i <= 6000; i++) {
+                if (i == id) {
+                    continue;
+                }
+                else {
+                    Bitmap searchImage = new Bitmap("../../test/sample (" + i + ").bmp");
+                    if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
+                        continue;
+                    }
+                    searchImage = Resize(targetImage, searchImage); // normalisasi
+                    // Console.WriteLine("ngecek sampel ke-" + i);
+                    string searchBinary = BMPToBinaryString(searchImage);
+                    string searchAscii = BinaryStringToAscii(searchBinary);
+                    float distanceTemp = 0;
+                    for (int j = -5; j <= 5; j++) {
+                        targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2 + targetImage.Width*j - targetImage.Width*4/10, targetImage.Width*8/10));
+                        int dist = LevenshteinDistance(targetAscii, searchAscii);
+                        distanceTemp += (float)((searchAscii.Length - dist)/targetAscii.Length * 100)/10;
+                    }
+                    if (distance == -1) {
+                        distance = distanceTemp;
+                        notExactIdx = i;
+                    }
+                    if (distanceTemp > distance) {
+                        distance = distanceTemp;
+                        notExactIdx = i;
+                    }
+                }
+            }
+        }
         stopwatch.Stop();
 
         if (exactIdx != -1) {
             Console.WriteLine("Exact match ditemukan pada gambar dengan id " + exactIdx);
         }
         else {
-            Console.WriteLine("Gambar termirip ditemukan pada gambar dengan id " + notExactIdx + " dengan Levenshtein Distance sebesar " + distance);
+            Console.WriteLine("Gambar termirip ditemukan pada gambar dengan id " + notExactIdx + " dan kemiripan " + distance + " persen");
         }
         Console.WriteLine("Waktu yang dibutuhkan: " + (float)stopwatch.ElapsedMilliseconds/1000 + " detik");
     }
