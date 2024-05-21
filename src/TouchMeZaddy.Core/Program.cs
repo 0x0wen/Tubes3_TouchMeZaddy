@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Runtime.Intrinsics.X86;
 using System.Runtime.Intrinsics.Arm;
@@ -10,8 +11,11 @@ using System.Reflection;
 
 partial class Program
 {
-    static void Main()
+    static async Task Main()
     {
+        // Call the asynchronous MainAsync method
+        await MainAsync(new string[] { });
+
         Console.WriteLine("Masukkan id gambar sampel yang ingin dijadikan referensi");
         int id = Convert.ToInt32(Console.ReadLine());
         Bitmap targetImage = new Bitmap("./../../test/sample (" + id + ").bmp");
