@@ -11,10 +11,14 @@ using System.Reflection;
 
 partial class Program
 {
-    static async Task Main()
+    // static async Task Main()
+    static void Main()
     {
         // Call the asynchronous MainAsync method
-        await MainAsync(new string[] { });
+        // await MainAsync(new string[] { });
+        List<KeyValuePair<string, string>> imagePath = new List<KeyValuePair<string, string>>();
+        readDB(imagePath);
+        // System.Console.WriteLine(imagePath.Count);
 
         Console.WriteLine("Masukkan id gambar sampel yang ingin dijadikan referensi");
         int id = Convert.ToInt32(Console.ReadLine());

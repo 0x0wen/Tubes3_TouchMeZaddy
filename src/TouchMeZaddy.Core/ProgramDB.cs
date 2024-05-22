@@ -22,393 +22,388 @@ public partial class Program
             new Biodata
             {
                 NIK = "1234567890123451",
-                Nama = "John Doe",
-                TempatLahir = "Jakarta",
-                TanggalLahir = new DateTime(1980, 1, 1),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "O",
-                Alamat = "Jl. Merdeka No. 1",
-                Agama = "Islam",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Programmer",
-                Kewarganegaraan = "Indonesia"
+                nama = "John Doe",
+                tempat_lahir = "Jakarta",
+                tanggal_lahir = new DateTime(1980, 1, 1),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "O",
+                alamat = "Jl. Merdeka No. 1",
+                agama = "Islam",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Programmer",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123452",
-                Nama = "Jane Doe",
-                TempatLahir = "Bandung",
-                TanggalLahir = new DateTime(1985, 2, 2),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "A",
-                Alamat = "Jl. Sudirman No. 2",
-                Agama = "Kristen",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Designer",
-                Kewarganegaraan = "Indonesia"
+                nama = "Jane Doe",
+                tempat_lahir = "Bandung",
+                tanggal_lahir = new DateTime(1985, 2, 2),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "A",
+                alamat = "Jl. Sudirman No. 2",
+                agama = "Kristen",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Designer",
+                kewarganegaraan = "Indonesia"
             },
-            // Add more unique data here...
             new Biodata
             {
                 NIK = "1234567890123453",
-                Nama = "Alice Johnson",
-                TempatLahir = "Surabaya",
-                TanggalLahir = new DateTime(1990, 3, 3),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "B",
-                Alamat = "Jl. Pahlawan No. 3",
-                Agama = "Hindu",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Teacher",
-                Kewarganegaraan = "Indonesia"
+                nama = "Alice Johnson",
+                tempat_lahir = "Surabaya",
+                tanggal_lahir = new DateTime(1990, 3, 3),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "B",
+                alamat = "Jl. Pahlawan No. 3",
+                agama = "Hindu",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Teacher",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123454",
-                Nama = "Bob Smith",
-                TempatLahir = "Medan",
-                TanggalLahir = new DateTime(1975, 4, 4),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "AB",
-                Alamat = "Jl. Diponegoro No. 4",
-                Agama = "Budha",
-                StatusPerkawinan = "Cerai",
-                Pekerjaan = "Engineer",
-                Kewarganegaraan = "Indonesia"
+                nama = "Bob Smith",
+                tempat_lahir = "Medan",
+                tanggal_lahir = new DateTime(1975, 4, 4),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "AB",
+                alamat = "Jl. Diponegoro No. 4",
+                agama = "Budha",
+                status_perkawinan = "Cerai",
+                pekerjaan = "Engineer",
+                kewarganegaraan = "Indonesia"
             },
-            // More unique sample data...
             new Biodata
             {
                 NIK = "1234567890123455",
-                Nama = "Cindy Brown",
-                TempatLahir = "Yogyakarta",
-                TanggalLahir = new DateTime(1983, 5, 5),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "O",
-                Alamat = "Jl. Malioboro No. 5",
-                Agama = "Katolik",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Doctor",
-                Kewarganegaraan = "Indonesia"
+                nama = "Cindy Brown",
+                tempat_lahir = "Yogyakarta",
+                tanggal_lahir = new DateTime(1983, 5, 5),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "O",
+                alamat = "Jl. Malioboro No. 5",
+                agama = "Katolik",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Doctor",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123456",
-                Nama = "David Wilson",
-                TempatLahir = "Semarang",
-                TanggalLahir = new DateTime(1988, 6, 6),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "A",
-                Alamat = "Jl. Diponegoro No. 6",
-                Agama = "Protestan",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Lawyer",
-                Kewarganegaraan = "Indonesia"
+                nama = "David Wilson",
+                tempat_lahir = "Semarang",
+                tanggal_lahir = new DateTime(1988, 6, 6),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "A",
+                alamat = "Jl. Diponegoro No. 6",
+                agama = "Protestan",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Lawyer",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123457",
-                Nama = "Eva Martin",
-                TempatLahir = "Bali",
-                TanggalLahir = new DateTime(1992, 7, 7),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "B",
-                Alamat = "Jl. Kuta No. 7",
-                Agama = "Islam",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Artist",
-                Kewarganegaraan = "Indonesia"
+                nama = "Eva Martin",
+                tempat_lahir = "Bali",
+                tanggal_lahir = new DateTime(1992, 7, 7),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "B",
+                alamat = "Jl. Kuta No. 7",
+                agama = "Islam",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Artist",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123458",
-                Nama = "Frank Moore",
-                TempatLahir = "Balikpapan",
-                TanggalLahir = new DateTime(1979, 8, 8),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "AB",
-                Alamat = "Jl. Sudirman No. 8",
-                Agama = "Hindu",
-                StatusPerkawinan = "Cerai",
-                Pekerjaan = "Manager",
-                Kewarganegaraan = "Indonesia"
+                nama = "Frank Moore",
+                tempat_lahir = "Balikpapan",
+                tanggal_lahir = new DateTime(1979, 8, 8),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "AB",
+                alamat = "Jl. Sudirman No. 8",
+                agama = "Hindu",
+                status_perkawinan = "Cerai",
+                pekerjaan = "Manager",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123459",
-                Nama = "Grace Lee",
-                TempatLahir = "Makassar",
-                TanggalLahir = new DateTime(1993, 9, 9),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "O",
-                Alamat = "Jl. Tamalate No. 9",
-                Agama = "Budha",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Nurse",
-                Kewarganegaraan = "Indonesia"
+                nama = "Grace Lee",
+                tempat_lahir = "Makassar",
+                tanggal_lahir = new DateTime(1993, 9, 9),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "O",
+                alamat = "Jl. Tamalate No. 9",
+                agama = "Budha",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Nurse",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123460",
-                Nama = "Hank White",
-                TempatLahir = "Padang",
-                TanggalLahir = new DateTime(1981, 10, 10),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "A",
-                Alamat = "Jl. Merdeka No. 10",
-                Agama = "Kristen",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Technician",
-                Kewarganegaraan = "Indonesia"
+                nama = "Hank White",
+                tempat_lahir = "Padang",
+                tanggal_lahir = new DateTime(1981, 10, 10),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "A",
+                alamat = "Jl. Merdeka No. 10",
+                agama = "Kristen",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Technician",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123461",
-                Nama = "Ivy Green",
-                TempatLahir = "Palembang",
-                TanggalLahir = new DateTime(1991, 11, 11),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "B",
-                Alamat = "Jl. Ampera No. 11",
-                Agama = "Katolik",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Scientist",
-                Kewarganegaraan = "Indonesia"
+                nama = "Ivy Green",
+                tempat_lahir = "Palembang",
+                tanggal_lahir = new DateTime(1991, 11, 11),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "B",
+                alamat = "Jl. Ampera No. 11",
+                agama = "Katolik",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Scientist",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123462",
-                Nama = "Jack Black",
-                TempatLahir = "Malang",
-                TanggalLahir = new DateTime(1984, 12, 12),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "O",
-                Alamat = "Jl. Soekarno No. 12",
-                Agama = "Islam",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Architect",
-                Kewarganegaraan = "Indonesia"
+                nama = "Jack Black",
+                tempat_lahir = "Malang",
+                tanggal_lahir = new DateTime(1984, 12, 12),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "O",
+                alamat = "Jl. Soekarno No. 12",
+                agama = "Islam",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Architect",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123463",
-                Nama = "Kathy Brown",
-                TempatLahir = "Pontianak",
-                TanggalLahir = new DateTime(1987, 1, 13),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "A",
-                Alamat = "Jl. Gajahmada No. 13",
-                Agama = "Protestan",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Dentist",
-                Kewarganegaraan = "Indonesia"
+                nama = "Kathy Brown",
+                tempat_lahir = "Pontianak",
+                tanggal_lahir = new DateTime(1987, 1, 13),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "A",
+                alamat = "Jl. Gajahmada No. 13",
+                agama = "Protestan",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Dentist",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123464",
-                Nama = "Leo King",
-                TempatLahir = "Banjarmasin",
-                TanggalLahir = new DateTime(1978, 2, 14),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "B",
-                Alamat = "Jl. Antasari No. 14",
-                Agama = "Budha",
-                StatusPerkawinan = "Cerai",
-                Pekerjaan = "Pilot",
-                Kewarganegaraan = "Indonesia"
+                nama = "Leo King",
+                tempat_lahir = "Banjarmasin",
+                tanggal_lahir = new DateTime(1978, 2, 14),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "B",
+                alamat = "Jl. Antasari No. 14",
+                agama = "Budha",
+                status_perkawinan = "Cerai",
+                pekerjaan = "Pilot",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123465",
-                Nama = "Mia Clark",
-                TempatLahir = "Cirebon",
-                TanggalLahir = new DateTime(1995, 3, 15),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "AB",
-                Alamat = "Jl. Kartini No. 15",
-                Agama = "Hindu",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Chef",
-                Kewarganegaraan = "Indonesia"
+                nama = "Mia Clark",
+                tempat_lahir = "Cirebon",
+                tanggal_lahir = new DateTime(1995, 3, 15),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "AB",
+                alamat = "Jl. Kartini No. 15",
+                agama = "Hindu",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Chef",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123466",
-                Nama = "Nina Walker",
-                TempatLahir = "Solo",
-                TanggalLahir = new DateTime(1994, 4, 16),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "O",
-                Alamat = "Jl. Slamet Riyadi No. 16",
-                Agama = "Islam",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Musician",
-                Kewarganegaraan = "Indonesia"
+                nama = "Nina Walker",
+                tempat_lahir = "Solo",
+                tanggal_lahir = new DateTime(1994, 4, 16),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "O",
+                alamat = "Jl. Slamet Riyadi No. 16",
+                agama = "Islam",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Musician",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123467",
-                Nama = "Oscar Young",
-                TempatLahir = "Tangerang",
-                TanggalLahir = new DateTime(1989, 5, 17),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "A",
-                Alamat = "Jl. Ahmad Yani No. 17",
-                Agama = "Kristen",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Photographer",
-                Kewarganegaraan = "Indonesia"
+                nama = "Oscar Young",
+                tempat_lahir = "Tangerang",
+                tanggal_lahir = new DateTime(1989, 5, 17),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "A",
+                alamat = "Jl. Ahmad Yani No. 17",
+                agama = "Kristen",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Photographer",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123468",
-                Nama = "Paul Harris",
-                TempatLahir = "Cianjur",
-                TanggalLahir = new DateTime(1986, 6, 18),
-                JenisKelamin = "Laki-Laki",
-                GolonganDarah = "B",
-                Alamat = "Jl. Siliwangi No. 18",
-                Agama = "Katolik",
-                StatusPerkawinan = "Cerai",
-                Pekerjaan = "Journalist",
-                Kewarganegaraan = "Indonesia"
+                nama = "Paul Harris",
+                tempat_lahir = "Cianjur",
+                tanggal_lahir = new DateTime(1986, 6, 18),
+                jenis_kelamin = "Laki-Laki",
+                golongan_darah = "B",
+                alamat = "Jl. Siliwangi No. 18",
+                agama = "Katolik",
+                status_perkawinan = "Cerai",
+                pekerjaan = "Journalist",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123469",
-                Nama = "Quinn Thomas",
-                TempatLahir = "Madiun",
-                TanggalLahir = new DateTime(1996, 7, 19),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "AB",
-                Alamat = "Jl. Pahlawan No. 19",
-                Agama = "Budha",
-                StatusPerkawinan = "Belum Menikah",
-                Pekerjaan = "Writer",
-                Kewarganegaraan = "Indonesia"
+                nama = "Quinn Thomas",
+                tempat_lahir = "Madiun",
+                tanggal_lahir = new DateTime(1996, 7, 19),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "AB",
+                alamat = "Jl. Pahlawan No. 19",
+                agama = "Budha",
+                status_perkawinan = "Belum Menikah",
+                pekerjaan = "Writer",
+                kewarganegaraan = "Indonesia"
             },
             new Biodata
             {
                 NIK = "1234567890123470",
-                Nama = "Rachel Scott",
-                TempatLahir = "Jember",
-                TanggalLahir = new DateTime(1990, 8, 20),
-                JenisKelamin = "Perempuan",
-                GolonganDarah = "O",
-                Alamat = "Jl. Jawa No. 20",
-                Agama = "Islam",
-                StatusPerkawinan = "Menikah",
-                Pekerjaan = "Engineer",
-                Kewarganegaraan = "Indonesia"
+                nama = "Rachel Scott",
+                tempat_lahir = "Jember",
+                tanggal_lahir = new DateTime(1990, 8, 20),
+                jenis_kelamin = "Perempuan",
+                golongan_darah = "O",
+                alamat = "Jl. Jawa No. 20",
+                agama = "Islam",
+                status_perkawinan = "Menikah",
+                pekerjaan = "Engineer",
+                kewarganegaraan = "Indonesia"
             }
         };
 
         await InsertMultipleBiodata(db, biodataList);
 
-        // Insert multiple sidik jari
         var sidikJariList = new List<SidikJari>
         {
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint1/image",
-                Nama = "John Doe"
+                berkas_citra = "./../../test/sample (1).bmp",
+                nama = "John Doe"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint2/image",
-                Nama = "Jane Doe"
-            },
-            // Add more unique data here...
-            new SidikJari
-            {
-                BerkasCitra = "path/to/fingerprint3/image",
-                Nama = "Alice Johnson"
+                berkas_citra = "./../../test/sample (2).bmp",
+                nama = "Jane Doe"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint4/image",
-                Nama = "Bob Smith"
-            },
-            // More unique sample data...
-            new SidikJari
-            {
-                BerkasCitra = "path/to/fingerprint5/image",
-                Nama = "Cindy Brown"
+                berkas_citra = "./../../test/sample (3).bmp",
+                nama = "Alice Johnson"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint6/image",
-                Nama = "David Wilson"
+                berkas_citra = "./../../test/sample (4).bmp",
+                nama = "Bob Smith"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint7/image",
-                Nama = "Eva Martin"
+                berkas_citra = "./../../test/sample (5).bmp",
+                nama = "Cindy Brown"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint8/image",
-                Nama = "Frank Moore"
+                berkas_citra = "./../../test/sample (6).bmp",
+                nama = "David Wilson"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint9/image",
-                Nama = "Grace Lee"
+                berkas_citra = "./../../test/sample (7).bmp",
+                nama = "Eva Martin"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint10/image",
-                Nama = "Hank White"
+                berkas_citra = "./../../test/sample (8).bmp",
+                nama = "Frank Moore"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint11/image",
-                Nama = "Ivy Green"
+                berkas_citra = "./../../test/sample (9).bmp",
+                nama = "Grace Lee"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint12/image",
-                Nama = "Jack Black"
+                berkas_citra = "./../../test/sample (10).bmp",
+                nama = "Hank White"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint13/image",
-                Nama = "Kathy Brown"
+                berkas_citra = "./../../test/sample (11).bmp",
+                nama = "Ivy Green"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint14/image",
-                Nama = "Leo King"
+                berkas_citra = "./../../test/sample (12).bmp",
+                nama = "Jack Black"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint15/image",
-                Nama = "Mia Clark"
+                berkas_citra = "./../../test/sample (13).bmp",
+                nama = "Kathy Brown"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint16/image",
-                Nama = "Nina Walker"
+                berkas_citra = "./../../test/sample (14).bmp",
+                nama = "Leo King"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint17/image",
-                Nama = "Oscar Young"
+                berkas_citra = "./../../test/sample (15).bmp",
+                nama = "Mia Clark"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint18/image",
-                Nama = "Paul Harris"
+                berkas_citra = "./../../test/sample (16).bmp",
+                nama = "Nina Walker"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint19/image",
-                Nama = "Quinn Thomas"
+                berkas_citra = "./../../test/sample (17).bmp",
+                nama = "Oscar Young"
             },
             new SidikJari
             {
-                BerkasCitra = "path/to/fingerprint20/image",
-                Nama = "Rachel Scott"
+                berkas_citra = "./../../test/sample (18).bmp",
+                nama = "Paul Harris"
+            },
+            new SidikJari
+            {
+                berkas_citra = "./../../test/sample (19).bmp",
+                nama = "Quinn Thomas"
+            },
+            new SidikJari
+            {
+                berkas_citra = "./../../test/sample (20).bmp",
+                nama = "Rachel Scott"
             }
         };
 
@@ -418,14 +413,14 @@ public partial class Program
         var retrievedBiodataList = await db.Table<Biodata>().ToListAsync();
         foreach (var b in retrievedBiodataList)
         {
-            Console.WriteLine($"NIK: {b.NIK}, Nama: {b.Nama}");
+            Console.WriteLine($"NIK: {b.NIK}, nama: {b.nama}");
         }
 
         // Query and print SidikJari
         var retrievedSidikJariList = await db.Table<SidikJari>().ToListAsync();
         foreach (var s in retrievedSidikJariList)
         {
-            Console.WriteLine($"Nama: {s.Nama}, Berkas Citra: {s.BerkasCitra}");
+            Console.WriteLine($"nama: {s.nama}, Berkas Citra: {s.berkas_citra}");
         }
     }
 

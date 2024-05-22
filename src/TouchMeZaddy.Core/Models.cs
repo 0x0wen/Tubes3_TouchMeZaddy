@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using SQLite;
 
-[Table("Biodata")]
+[Table("biodata")]
 public class Biodata
 {
     [PrimaryKey]
@@ -12,50 +12,50 @@ public class Biodata
     
     [MaxLength(100)]
     [DefaultValue(null)]
-    public string Nama { get; set; }
+    public string nama { get; set; }
     
     [MaxLength(50)]
     [DefaultValue(null)]
-    public string TempatLahir { get; set; }
+    public string tempat_lahir { get; set; }
     
     [DefaultValue(null)]
-    public DateTime? TanggalLahir { get; set; }
+    public DateTime? tanggal_lahir { get; set; }
     
     [MaxLength(10)]
     [DefaultValue(null)]
-    public string JenisKelamin { get; set; }
+    public string jenis_kelamin { get; set; }
     
     [MaxLength(5)]
     [DefaultValue(null)]
-    public string GolonganDarah { get; set; }
+    public string golongan_darah { get; set; }
     
     [MaxLength(255)]
     [DefaultValue(null)]
-    public string Alamat { get; set; }
+    public string alamat { get; set; }
     
     [MaxLength(50)]
     [DefaultValue(null)]
-    public string Agama { get; set; }
+    public string agama { get; set; }
     
     [MaxLength(20)]
     [DefaultValue(null)]
-    public string StatusPerkawinan { get; set; }
+    public string status_perkawinan { get; set; }
     
     [MaxLength(100)]
     [DefaultValue(null)]
-    public string Pekerjaan { get; set; }
+    public string pekerjaan { get; set; }
     
     [MaxLength(50)]
     [DefaultValue(null)]
-    public string Kewarganegaraan { get; set; }
+    public string kewarganegaraan { get; set; }
 }
 
-[Table("SidikJari")]
+[Table("sidik_jari")]
 public class SidikJari
 {
-    public string BerkasCitra { get; set; }
+    public string berkas_citra { get; set; }
     
     [MaxLength(100)]
     [DefaultValue(null)]
-    public string Nama { get; set; }
+    public string nama { get; set; }
 }
