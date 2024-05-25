@@ -33,7 +33,7 @@ partial class Program
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
-        for (int i = 1; i <= 6000; i++) {
+        for (int i = 1; i <= imagePath.Count; i++) {
             if (i == id) {
                 continue;
             }
@@ -55,12 +55,12 @@ partial class Program
         if (exactIdx == -1) {
             Console.WriteLine("Exact match tidak ditemukan");
             Console.WriteLine("Mengulangi pencarian dengan Levenshtein");
-            for (int i = 1; i <= 6000; i++) {
+            for (int i = 1; i <= imagePath.Count; i++) {
                 if (i == id) {
                     continue;
                 }
                 else {
-                    Bitmap searchImage = new Bitmap("../../test/sample (" + i + ").bmp");
+                    Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
                     if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
                         continue;
                     }
