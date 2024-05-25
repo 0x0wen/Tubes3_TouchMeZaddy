@@ -1,1 +1,11 @@
 *.bmp
+
+# visual studio config
+src/.vs/
+.vs/
+
+# packages
+src/packages/*
+
+#binaries
+src/TouchMeZaddy.Core/bin/
