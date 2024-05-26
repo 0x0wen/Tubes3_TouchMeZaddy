@@ -13,6 +13,7 @@ namespace TouchMeZaddy
     public partial class Form1 : Form
     {
         private Button selectedAlgorithm;
+        private Image imageFile;
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +21,9 @@ namespace TouchMeZaddy
 
         private void uploadButton_Click(object sender, EventArgs e)
         {
+            // clear time and similarity
+            executionTime.Text = "???";
+            similarityPct.Text = "???";
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -28,6 +32,7 @@ namespace TouchMeZaddy
                     // Load the image from the selected file
                     string filePath = openFileDialog1.FileName;
                     Image fingerprintImage = Image.FromFile(filePath);
+                    this.imageFile = fingerprintImage;
 
                     // Display the image in the PictureBox
                     pictureBox1.Image = fingerprintImage;
@@ -44,11 +49,6 @@ namespace TouchMeZaddy
         {
             Button clickedButton = sender as Button;
             SetSelectedButton(clickedButton);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -116,7 +116,42 @@ namespace TouchMeZaddy
             // Optionally set an initial selection
             SetSelectedButton(button1);
         }
+        private void PopulateResultData()
+        {
+            // Add Labels and TextBoxes
+            tableLayoutPanel1.Controls.Add(new Label { Text = "NIK", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 0);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "John Doe" }, 1, 0);
 
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Name", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 1);
+            tableLayoutPanel1.Controls.Add(new Label { Text = new DateTime(1990, 1, 1).ToString("d") }, 1, 1);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Place, Birth Date", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 2);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Jane Doe" }, 1, 2);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Gender", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 3);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 3);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Blood Type", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 4);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 4);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Address", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 5);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 5);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Religion", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 6);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 6);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Marital Status", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 7);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 7);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Occupancy", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 8);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 8);
+
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Nationality", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 9);
+            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 9);
+
+
+
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -126,6 +161,41 @@ namespace TouchMeZaddy
         {
             Button clickedButton = sender as Button;
             SetSelectedButton(clickedButton);
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PopulateResultData();
+        }
+
+        private void executionTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void similarityPct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
