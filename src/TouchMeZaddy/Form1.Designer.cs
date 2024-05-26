@@ -1,4 +1,4 @@
-﻿
+
 namespace TouchMeZaddy
 {
     partial class Form1
