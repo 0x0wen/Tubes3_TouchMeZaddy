@@ -17,8 +17,8 @@ partial class Program
         // Call the asynchronous MainAsync method
         // await MainAsync(new string[] { });
         List<KeyValuePair<string, string>> imagePath = new List<KeyValuePair<string, string>>();
-        readDB(imagePath);
-        // System.Console.WriteLine(imagePath.Count);
+        List<KeyValuePair<string, Biodata>> biodata = new List<KeyValuePair<string, Biodata>>();
+        readDB(imagePath, biodata);
 
         Console.WriteLine("Masukkan id gambar sampel yang ingin dijadikan referensi");
         int id = Convert.ToInt32(Console.ReadLine());
