@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Text;
 
 class Biodata
@@ -28,5 +29,18 @@ class Biodata
         this.status_perkawinan = status_perkawinan;
         this.pekerjaan = pekerjaan;
         this.kewarganegaraan = kewarganegaraan;
+    }
+
+    public void printData() {
+        Console.WriteLine(NIK);
+        Console.WriteLine(tempat_lahir);
+        Console.WriteLine(tanggal_lahir);
+        Console.WriteLine(jenis_kelamin);
+        Console.WriteLine(golongan_darah);
+        Console.WriteLine(alamat);
+        Console.WriteLine(agama);
+        Console.WriteLine(status_perkawinan);
+        Console.WriteLine(pekerjaan);
+        Console.WriteLine(kewarganegaraan);
     }
 }

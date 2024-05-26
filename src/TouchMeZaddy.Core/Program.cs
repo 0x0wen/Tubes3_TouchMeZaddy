@@ -34,72 +34,84 @@ partial class Program
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         for (int i = 0; i < imagePath.Count; i++) {
-            if (i == id) {
+            Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
+            if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
                 continue;
             }
-            else {
-                Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
-                if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
-                    continue;
-                }
-                searchImage = Resize(targetImage, searchImage); // normalisasi
-                Console.WriteLine("ngecek sampel ke-" + i);
-                string searchAscii = BinaryStringToAscii(BMPToBinaryString(searchImage));
-                int result = KmpMatch(searchAscii, targetAscii); // kalo mau bm tinggal ubah jadi bmmatch
-                if (result != -1) {
-                    exactIdx = i;
-                    break;
-                }
+            searchImage = Resize(targetImage, searchImage); // normalisasi
+            Console.WriteLine("ngecek sampel ke-" + i);
+            string searchAscii = BinaryStringToAscii(BMPToBinaryString(searchImage));
+            int result = KmpMatch(searchAscii, targetAscii); // kalo mau bm tinggal ubah jadi bmmatch
+            if (result != -1) {
+                exactIdx = i;
+                break;
             }
         }
         if (exactIdx == -1) {
             Console.WriteLine("Exact match tidak ditemukan");
             Console.WriteLine("Mengulangi pencarian dengan Levenshtein");
             for (int i = 0; i < imagePath.Count; i++) {
-                if (i == id) {
+                Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
+                if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
                     continue;
                 }
-                else {
-                    Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
-                    if ((double)targetImage.Width/targetImage.Height != (double)searchImage.Width/searchImage.Height) {
-                        continue;
-                    }
-                    searchImage = Resize(targetImage, searchImage); // normalisasi
-                    Console.WriteLine("ngecek sampel ke-" + i);
-                    string searchBinary = BMPToBinaryString(searchImage);
-                    string searchAscii = BinaryStringToAscii(searchBinary);
-                    float distanceTemp = 0;
+                searchImage = Resize(targetImage, searchImage); // normalisasi
+                Console.WriteLine("ngecek sampel ke-" + i);
+                string searchBinary = BMPToBinaryString(searchImage);
+                string searchAscii = BinaryStringToAscii(searchBinary);
+                float distanceTemp = 0;
 
-                    // tuning variabel
-                    // jgn lebih besar dari targetImage.Height/2
-                    // value yg dh pernah kucoba tuh 50, 25, 10, 5
-                    int tuning = 5;
-                    for (int j = -tuning; j <= tuning; j++) {
-                        targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2 + targetImage.Width*j - targetImage.Width*4/10, targetImage.Width*8/10));
-                        int dist = LevenshteinDistance(targetAscii, searchAscii);
-                        distanceTemp += (float)((searchAscii.Length - dist)/targetAscii.Length * 100)/(tuning*2);
-                    }
-                    if (distance == -1) {
-                        distance = distanceTemp;
-                        notExactIdx = i;
-                    }
-                    if (distanceTemp > distance) {
-                        distance = distanceTemp;
-                        notExactIdx = i;
-                    }
+                // tuning variabel
+                // jgn lebih besar dari targetImage.Height/2
+                // value yg dh pernah kucoba tuh 50, 25, 10, 5
+                int tuning = 5;
+                for (int j = -tuning; j <= tuning; j++) {
+                    targetAscii = BinaryStringToAscii(targetBinary.Substring(targetBinary.Length/2 + targetImage.Width*j - targetImage.Width*4/10, targetImage.Width*8/10));
+                    int dist = LevenshteinDistance(targetAscii, searchAscii);
+                    distanceTemp += (float)((searchAscii.Length - dist)/targetAscii.Length * 100)/(tuning*2);
+                }
+                if (distance == -1) {
+                    distance = distanceTemp;
+                    notExactIdx = i;
+                }
+                if (distanceTemp > distance) {
+                    distance = distanceTemp;
+                    notExactIdx = i;
                 }
             }
         }
         stopwatch.Stop();
 
+        string matchName;
         if (exactIdx != -1) {
+            matchName = imagePath[exactIdx].Key;
             Console.WriteLine("Exact match ditemukan pada gambar dengan id " + exactIdx);
-            Console.WriteLine("dengan nama pemilik sidik jari " + imagePath[exactIdx].Key);
+            Console.WriteLine("dengan nama pemilik sidik jari " + matchName);
         }
         else {
+            matchName = imagePath[notExactIdx].Key;
             Console.WriteLine("Gambar termirip ditemukan pada gambar dengan id " + notExactIdx + " dan kemiripan " + distance + " persen");
-            Console.WriteLine("dengan nama pemilik sidik jari " + imagePath[notExactIdx].Key);
+            Console.WriteLine("dengan nama pemilik sidik jari " + matchName);
         }
+
+        System.Console.WriteLine("Mencari nama yang sesuai pada biodata");
+        int minDistance = -1;
+        int targetIdx = -1;
+        for (int i = 0; i < biodata.Count; i++) {
+            System.Console.WriteLine("ngecek biodata ke-" + i);
+            if (minDistance == -1) {
+                minDistance = LevenshteinRegex(matchName, biodata[i].Key);
+                targetIdx = i;
+            }
+            if (minDistance > LevenshteinRegex(matchName, biodata[i].Key)) {
+                minDistance = LevenshteinRegex(matchName, biodata[i].Key);
+                targetIdx = i;
+            }
+        }
+
+        System.Console.WriteLine("Berikut data dari pemilik sidik jari yang bernama " + matchName);
+        biodata[targetIdx].Value.printData();
+        
         Console.WriteLine("Waktu yang dibutuhkan: " + (float)stopwatch.ElapsedMilliseconds/1000 + " detik");
     }
 }
