@@ -29,7 +29,6 @@ namespace TouchMeZaddy
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PilihCitra = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -181,7 +180,7 @@ namespace TouchMeZaddy
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Image = global::TouchMeZaddy.Properties.Resources.Group;
             this.pictureBox4.Location = new System.Drawing.Point(943, 575);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 50);
@@ -191,7 +190,7 @@ namespace TouchMeZaddy
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::TouchMeZaddy.Properties.Resources.Clock;
             this.pictureBox3.Location = new System.Drawing.Point(943, 519);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
@@ -202,7 +201,7 @@ namespace TouchMeZaddy
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::TouchMeZaddy.Properties.Resources.Frame_1__1_;
             this.pictureBox1.Location = new System.Drawing.Point(11, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(331, 407);
@@ -213,7 +212,7 @@ namespace TouchMeZaddy
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::TouchMeZaddy.Properties.Resources.Frame_1__1_;
             this.pictureBox2.Location = new System.Drawing.Point(348, 60);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(331, 407);
@@ -225,7 +224,7 @@ namespace TouchMeZaddy
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(248)))));
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Image = global::TouchMeZaddy.Properties.Resources.Search;
             this.pictureBox6.Location = new System.Drawing.Point(769, 554);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(50, 50);

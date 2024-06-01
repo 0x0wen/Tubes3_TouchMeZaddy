@@ -18,7 +18,8 @@ public class MainCalculation
         ReadDatabase.DB(imagePath, biodata);
         string targetBinary = Conversion.BMPToBinaryString(targetImage);
         string targetAscii = Conversion.BinaryStringToAscii(targetBinary.Substring(targetBinary.Length / 2, 32)); // panjang biner / 8 = panjang ascii
-
+        string currentDirectory = Directory.GetCurrentDirectory();
+        string fileNameWithoutExtension = "", extension = "", uppercaseExtension = "", newFileName = "";
         int exactIdx = -1;
         int notExactIdx = -1;
         float similarity = -1;
@@ -27,7 +28,12 @@ public class MainCalculation
         stopwatch.Start();
         for (int i = 0; i < imagePath.Count; i++)
         {
-            Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
+            fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imagePath[i].Value);
+            extension = Path.GetExtension(imagePath[i].Value);
+            uppercaseExtension = extension.ToUpper();
+            newFileName = fileNameWithoutExtension + uppercaseExtension;
+            string imgPath = Path.Combine(currentDirectory, newFileName);
+            Bitmap searchImage = new Bitmap(imgPath);
             if ((double)targetImage.Width / targetImage.Height != (double)searchImage.Width / searchImage.Height)
             {
                 continue;
@@ -113,8 +119,12 @@ public class MainCalculation
         }
 
         stopwatch.Stop();
-
-        Result result = new Result(biodata[targetIdx].Value, new Bitmap("../../test/" + matchImageName), similarity, (float)stopwatch.ElapsedMilliseconds / 1000);
+        fileNameWithoutExtension = Path.GetFileNameWithoutExtension(matchImageName);
+        extension = Path.GetExtension(matchImageName);
+        uppercaseExtension = extension.ToUpper();
+        newFileName = fileNameWithoutExtension + uppercaseExtension;
+        string filePath = Path.Combine(currentDirectory, newFileName);
+        Result result = new Result(biodata[targetIdx].Value, new Bitmap(filePath), similarity, (float)stopwatch.ElapsedMilliseconds / 1000);
         return result;
     }
 
@@ -135,18 +145,10 @@ public class MainCalculation
         stopwatch.Start();
         for (int i = 0; i < imagePath.Count; i++)
         {
-            // Separate the file name and extension
             fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imagePath[i].Value);
             extension = Path.GetExtension(imagePath[i].Value);
             uppercaseExtension = extension.ToUpper();
-
-            // Convert the extension to uppercase
-
-            // Combine the file name and the uppercase extension
             newFileName = fileNameWithoutExtension + uppercaseExtension;
-            // Determine the current directory
-            
-            // Set the path to the database file
             string imgPath = Path.Combine(currentDirectory, newFileName);
             System.Console.WriteLine($"{imgPath} {newFileName}");
             Bitmap searchImage = new Bitmap(imgPath);
@@ -237,11 +239,7 @@ public class MainCalculation
         stopwatch.Stop();
          fileNameWithoutExtension = Path.GetFileNameWithoutExtension(matchImageName);
          extension = Path.GetExtension(matchImageName);
-
-        // Convert the extension to uppercase
          uppercaseExtension = extension.ToUpper();
-
-        // Combine the file name and the uppercase extension
          newFileName = fileNameWithoutExtension + uppercaseExtension;
         string filePath = Path.Combine(currentDirectory, newFileName);
         Result result = new Result(biodata[targetIdx].Value, new Bitmap(filePath), similarity, (float)stopwatch.ElapsedMilliseconds / 1000);
