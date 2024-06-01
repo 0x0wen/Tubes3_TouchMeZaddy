@@ -1,4 +1,5 @@
 ﻿using System;
+namespace TouchMeZaddy;
 
 partial class Comparison
 {

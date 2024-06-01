@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace TouchMeZaddy
-{
+namespace TouchMeZaddy;
     public partial class Form1 : Form
     {
         private Button selectedAlgorithm;
+        private String selectedAlgorithmText;   
         private Image imageFile;
         public Form1()
         {
@@ -24,7 +19,18 @@ namespace TouchMeZaddy
             // clear time and similarity
             executionTime.Text = "???";
             similarityPct.Text = "???";
-            DialogResult result = openFileDialog1.ShowDialog();
+            tableLayoutPanel1.Controls.Clear();
+            tableLayoutPanel1.ColumnStyles.Clear();
+            tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
+            {
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            }
+            pictureBox2.Image = null;
+            fingerprintFileName.Text = "";
+        DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 try
@@ -36,7 +42,7 @@ namespace TouchMeZaddy
 
                     // Display the image in the PictureBox
                     pictureBox1.Image = fingerprintImage;
-                    label1.Text = openFileDialog1.FileName.Split('\\').Last();
+                    fingerprintFileName.Text = openFileDialog1.FileName.Split('\\').Last();
                 }
                 catch (Exception ex)
                 {
@@ -101,10 +107,10 @@ namespace TouchMeZaddy
 
             // Set the new selected button and change its color
             selectedAlgorithm = button;
+            selectedAlgorithmText = button.Text;
             selectedAlgorithm.BackColor = Color.LightBlue; // Or any color you prefer
 
-            // Optionally, perform additional actions based on the selected button
-            // e.g., Update a variable, enable/disable other UI elements, etc.
+        
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -116,43 +122,94 @@ namespace TouchMeZaddy
             // Optionally set an initial selection
             SetSelectedButton(button1);
         }
-        private void PopulateResultData()
+    public class BorderedPanel : Panel
+    {
+        public BorderedPanel()
         {
-            // Add Labels and TextBoxes
-            tableLayoutPanel1.Controls.Add(new Label { Text = "NIK", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 0);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "John Doe" }, 1, 0);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Name", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 1);
-            tableLayoutPanel1.Controls.Add(new Label { Text = new DateTime(1990, 1, 1).ToString("d") }, 1, 1);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Place, Birth Date", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 2);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Jane Doe" }, 1, 2);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Gender", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 3);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 3);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Blood Type", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 4);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 4);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Address", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 5);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 5);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Religion", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 6);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 6);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Marital Status", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 7);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 7);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Occupancy", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 8);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 8);
-
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Nationality", TextAlign = System.Drawing.ContentAlignment.MiddleRight }, 0, 9);
-            tableLayoutPanel1.Controls.Add(new Label { Text = "Software Developer" }, 1, 9);
-
-
-
+            // Set background color to Transparent
+            this.BackColor = Color.Transparent;
         }
-        private void label1_Click(object sender, EventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Draw border using ControlPaint
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+        }
+    }
+    private void PopulateResultData(Result result)
+    {
+        // Clear existing controls
+        tableLayoutPanel1.Controls.Clear();
+
+        // Ensure the TableLayoutPanel will auto-size columns and rows
+        tableLayoutPanel1.ColumnStyles.Clear();
+        tableLayoutPanel1.RowStyles.Clear();
+
+        tableLayoutPanel1.ColumnCount = 2;
+        tableLayoutPanel1.RowCount = 10;
+
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+
+        for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
+        {
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }
+
+        // Add Labels with borders
+        AddLabelToTable("NIK", result.biodata.NIK, 0);
+        AddLabelToTable("Name", result.biodata.nama, 1);
+        AddLabelToTable("Place, Birth Date", result.biodata.tempat_lahir + ", " + result.biodata.tanggal_lahir.Split(' ')[0], 2);
+        AddLabelToTable("Gender", result.biodata.jenis_kelamin, 3);
+        AddLabelToTable("Blood Type", result.biodata.golongan_darah, 4);
+        AddLabelToTable("Address", result.biodata.alamat, 5);
+        AddLabelToTable("Religion", result.biodata.agama, 6);
+        AddLabelToTable("Marital Status", result.biodata.status_perkawinan, 7);
+        AddLabelToTable("Occupancy", result.biodata.pekerjaan, 8);
+        AddLabelToTable("Nationality", result.biodata.kewarganegaraan, 9);
+    }
+
+    private void AddLabelToTable(string labelText, string valueText, int rowIndex)
+    {
+        // Create custom bordered panels
+        var labelPanel = new BorderedPanel { AutoSize = true, Dock = DockStyle.Fill };
+        var valuePanel = new BorderedPanel { AutoSize = true, Dock = DockStyle.Fill };
+
+        // Create labels
+        var label = new Label
+        {
+            Text = labelText,
+            TextAlign = ContentAlignment.MiddleRight,
+            AutoSize = true
+        };
+
+        var value = new Label
+        {
+            Text = valueText,
+            AutoSize = true
+        };
+
+        // Set the label to be vertically centered
+        //var labelContainer = new Panel { Dock = DockStyle.Fill };
+        //labelContainer.Controls.Add(label);
+        //labelContainer.Padding = new Padding(0, 10, 0, 10);
+
+        // Add labels to panels
+        labelPanel.Controls.Add(label);
+        valuePanel.Controls.Add(value);
+
+        // Add panels to TableLayoutPanel
+        tableLayoutPanel1.Controls.Add(labelPanel, 0, rowIndex);
+        tableLayoutPanel1.Controls.Add(valuePanel, 1, rowIndex);
+
+        // Ensure that the labelPanel and valuePanel take up enough space
+        tableLayoutPanel1.SetColumn(labelPanel, 0);
+        tableLayoutPanel1.SetRow(labelPanel, rowIndex);
+        tableLayoutPanel1.SetColumn(valuePanel, 1);
+        tableLayoutPanel1.SetRow(valuePanel, rowIndex);
+    }
+    private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -178,9 +235,31 @@ namespace TouchMeZaddy
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
-            PopulateResultData();
+        pictureBox2.Image = global::TouchMeZaddy.Properties.Resources.giphy__1_;
+        pictureBox5.Image = global::TouchMeZaddy.Properties.Resources.giphy__1_;
+
+        Result hasil;
+            if (this.selectedAlgorithmText == "KMP")
+            {
+                hasil = await Task.Run(() => MainCalculation.KMPCalculation(new Bitmap(imageFile)));
+
+        }
+            else
+            {
+                hasil = await Task.Run(() => MainCalculation.BMCalculation(new Bitmap(imageFile)));
+        }
+            pictureBox2.Image = hasil.picture;
+            pictureBox5.Image = null;
+            pictureBox5.Visible = false;
+            hasil.biodata.printData();
+            System.Console.WriteLine(hasil.picture);
+            System.Console.WriteLine(hasil.similarity);
+            System.Console.WriteLine(hasil.executionTime);
+            executionTime.Text = hasil.executionTime.ToString() + "s";
+            similarityPct.Text = hasil.similarity.ToString() + "%";
+            PopulateResultData(hasil);
         }
 
         private void executionTime_Click(object sender, EventArgs e)
@@ -197,5 +276,9 @@ namespace TouchMeZaddy
         {
 
         }
+
+    private void pictureBox5_Click(object sender, EventArgs e)
+    {
+
     }
 }

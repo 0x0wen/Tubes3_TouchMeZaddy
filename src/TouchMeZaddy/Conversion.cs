@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Text;
+namespace TouchMeZaddy;
 
 public class Conversion
 {
@@ -74,7 +75,7 @@ public class Conversion
 
         // Resize the big image
         Bitmap resizedBitmap = new Bitmap(big, new Size(newWidth, newHeight));
-        
+
         return resizedBitmap;
     }
 }
