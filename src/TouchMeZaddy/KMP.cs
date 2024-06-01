@@ -1,6 +1,6 @@
 ﻿using System;
 
-partial class Program
+partial class Comparison
 {
     public static int KmpMatch(string text, string pattern)
     {

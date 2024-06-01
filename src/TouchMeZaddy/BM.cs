@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO.Compression;
 
-partial class Program
+partial class Comparison
 {
     public static int BmMatch(string text, string pattern)
     {

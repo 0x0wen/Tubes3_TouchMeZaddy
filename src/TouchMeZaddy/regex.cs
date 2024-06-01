@@ -2,9 +2,9 @@
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
-partial class Program
+public class Regex2
 {
-    static string BuildPattern(string target)
+    static public string BuildPattern(string target)
     {
         Dictionary<char, List<char>> rgx = new Dictionary<char, List<char>>
         {
@@ -57,7 +57,7 @@ partial class Program
         return pattern;
     }
 
-    static int LevenshteinRegex(string source, string target)
+    static public int LevenshteinRegex(string source, string target)
     {
         Dictionary<char, List<char>> rgx = new Dictionary<char, List<char>>
         {

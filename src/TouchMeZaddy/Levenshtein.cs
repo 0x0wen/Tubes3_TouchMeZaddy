@@ -1,8 +1,8 @@
 ﻿using System;
 
-partial class Program
+partial class Comparison
 {
-    static int LevenshteinDistance(string str1, string str2)
+    static public int LevenshteinDistance(string str1, string str2)
     {
         int m = str1.Length;
         int n = str2.Length;
