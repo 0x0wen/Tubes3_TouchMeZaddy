@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TouchMeZaddy
-{
+namespace TouchMeZaddy;
     static class Program
     {
         /// <summary>
@@ -19,4 +18,3 @@ namespace TouchMeZaddy
             Application.Run(new Form1());
         }
     }
-}

@@ -1,14 +1,23 @@
 ﻿using System;
-using System.Data.SQLite;
 using System.Drawing;
+using System.Collections.Generic;
 using System.Net.WebSockets;
+using System.Data.SQLite;
+using System.IO;
+namespace TouchMeZaddy;
 
 public class ReadDatabase
 {
+    
+    
     static public void DB(List<KeyValuePair<string, string>> imagePath, List<KeyValuePair<string, Biodata>> biodata)
     {
+        // Determine the current directory
+        string currentDirectory = Directory.GetCurrentDirectory();
+        // Set the path to the database file
+        string databasePath = Path.Combine(currentDirectory, "biodata.db");
         // Membuat koneksi ke database
-        using (SQLiteConnection connection = new SQLiteConnection("Data Source=biodata.db;Version=3;"))
+        using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databasePath};Version=3;"))
         {
             connection.Open();
 
