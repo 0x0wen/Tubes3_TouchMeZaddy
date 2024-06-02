@@ -28,11 +28,7 @@ public class MainCalculation
         stopwatch.Start();
         for (int i = 0; i < imagePath.Count; i++)
         {
-            fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imagePath[i].Value);
-            extension = Path.GetExtension(imagePath[i].Value);
-            uppercaseExtension = extension.ToUpper();
-            newFileName = fileNameWithoutExtension + uppercaseExtension;
-            string imgPath = Path.Combine(currentDirectory, newFileName);
+            string imgPath = Path.Combine(currentDirectory, imagePath[i].Value);
             Bitmap searchImage = new Bitmap(imgPath);
             if ((double)targetImage.Width / targetImage.Height != (double)searchImage.Width / searchImage.Height)
             {
@@ -54,7 +50,8 @@ public class MainCalculation
             targetAscii = Conversion.BinaryStringToAscii(targetBinary.Substring(targetBinary.Length / 2 - targetImage.Width * 4 / 10, targetImage.Width * 8 / 10)); // panjang biner / 8 = panjang ascii
             for (int i = 0; i < imagePath.Count; i++)
             {
-                Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
+                string imgPath = Path.Combine(currentDirectory, imagePath[i].Value);
+                Bitmap searchImage = new Bitmap(imgPath);
                 if ((double)targetImage.Width / targetImage.Height != (double)searchImage.Width / searchImage.Height)
                 {
                     continue;
@@ -145,12 +142,7 @@ public class MainCalculation
         stopwatch.Start();
         for (int i = 0; i < imagePath.Count; i++)
         {
-            fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imagePath[i].Value);
-            extension = Path.GetExtension(imagePath[i].Value);
-            uppercaseExtension = extension.ToUpper();
-            newFileName = fileNameWithoutExtension + uppercaseExtension;
-            string imgPath = Path.Combine(currentDirectory, newFileName);
-            System.Console.WriteLine($"{imgPath} {newFileName}");
+            string imgPath = Path.Combine(currentDirectory, imagePath[i].Value);
             Bitmap searchImage = new Bitmap(imgPath);
             if ((double)targetImage.Width / targetImage.Height != (double)searchImage.Width / searchImage.Height)
             {
@@ -172,7 +164,8 @@ public class MainCalculation
             targetAscii = Conversion.BinaryStringToAscii(targetBinary.Substring(targetBinary.Length / 2 - targetImage.Width * 4 / 10, targetImage.Width * 8 / 10)); // panjang biner / 8 = panjang ascii
             for (int i = 0; i < imagePath.Count; i++)
             {
-                Bitmap searchImage = new Bitmap("../../test/" + imagePath[i].Value);
+                string imgPath = Path.Combine(currentDirectory, imagePath[i].Value);
+                Bitmap searchImage = new Bitmap(imgPath);
                 if ((double)targetImage.Width / targetImage.Height != (double)searchImage.Width / searchImage.Height)
                 {
                     continue;
