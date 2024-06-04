@@ -7,5 +7,6 @@ src/.vs/
 # packages
 src/packages/*
 
-#binaries
-src/TouchMeZaddy.Core/bin/
+# bin dan obj
+src/TouchMeZaddy/bin/*
+src/TouchMeZaddy/obj/*

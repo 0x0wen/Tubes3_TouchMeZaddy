@@ -114,7 +114,6 @@
   <ItemGroup>
     <Compile Include="Biodata.cs" />
     <Compile Include="BM.cs" />
-    <Compile Include="cara pake.cs" />
     <Compile Include="Conversion.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="Levenshtein.cs" />
