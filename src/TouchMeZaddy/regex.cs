@@ -5,84 +5,32 @@ namespace TouchMeZaddy;
 
 public class Regex2
 {
-    static public string BuildPattern(string target)
-    {
-        Dictionary<char, List<char>> rgx = new Dictionary<char, List<char>>
-        {
-            { 'a', new List<char> { '4', 'A', 'a' } },
-            { 'b', new List<char> { 'B', 'b', '8' } },
-            { 'c', new List<char> { 'C', 'c' } },
-            { 'd', new List<char> { 'D', 'd' } },
-            { 'e', new List<char> { '3', 'E', 'e' } },
-            { 'f', new List<char> { 'F', 'f' } },
-            { 'g', new List<char> { 'G', 'g', '6' } },
-            { 'h', new List<char> { 'H', 'h' } },
-            { 'i', new List<char> { '1', 'I', 'i' } },
-            { 'j', new List<char> { 'J', 'j' } },
-            { 'k', new List<char> { 'K', 'k' } },
-            { 'l', new List<char> { 'L', 'l' } },
-            { 'm', new List<char> { 'M', 'm' } },
-            { 'n', new List<char> { 'N', 'n' } },
-            { 'o', new List<char> { '0', 'O', 'o' } },
-            { 'p', new List<char> { 'P', 'p' } },
-            { 'q', new List<char> { 'Q', 'q' } },
-            { 'r', new List<char> { 'R', 'r' } },
-            { 's', new List<char> { 'S', 's', '5' } },
-            { 't', new List<char> { 'T', 't', '7' } },
-            { 'u', new List<char> { 'U', 'u' } },
-            { 'v', new List<char> { 'V', 'v' } },
-            { 'w', new List<char> { 'W', 'w' } },
-            { 'x', new List<char> { 'X', 'x' } },
-            { 'y', new List<char> { 'Y', 'y' } },
-            { 'z', new List<char> { 'Z', 'z', '2' } }
-        };
-
-        string pattern = "^";
-        foreach (char c in target)
-        {
-            if (rgx.ContainsKey(char.ToLower(c)))
-            {
-                pattern += "[";
-                foreach (char rc in rgx[char.ToLower(c)])
-                {
-                    pattern += Regex.Escape(rc.ToString());
-                }
-                pattern += "]";
-            }
-            else
-            {
-                pattern += Regex.Escape(c.ToString());
-            }
-        }
-        pattern += "$";
-        return pattern;
-    }
-
     static public int LevenshteinRegex(string source, string target)
     {
+        source = CaesarCipher.Decrypt(source, 17);
         Dictionary<char, List<char>> rgx = new Dictionary<char, List<char>>
         {
-            { 'a', new List<char> { '4', 'A', 'a' } },
+            { 'a', new List<char> { '4', 'A', 'a', '\0' } },
             { 'b', new List<char> { 'B', 'b', '8' } },
             { 'c', new List<char> { 'C', 'c' } },
             { 'd', new List<char> { 'D', 'd' } },
-            { 'e', new List<char> { '3', 'E', 'e' } },
+            { 'e', new List<char> { '3', 'E', 'e', '\0' } },
             { 'f', new List<char> { 'F', 'f' } },
             { 'g', new List<char> { 'G', 'g', '6' } },
             { 'h', new List<char> { 'H', 'h' } },
-            { 'i', new List<char> { '1', 'I', 'i' } },
+            { 'i', new List<char> { '1', 'I', 'i', '\0' } },
             { 'j', new List<char> { 'J', 'j' } },
             { 'k', new List<char> { 'K', 'k' } },
             { 'l', new List<char> { 'L', 'l' } },
             { 'm', new List<char> { 'M', 'm' } },
             { 'n', new List<char> { 'N', 'n' } },
-            { 'o', new List<char> { '0', 'O', 'o' } },
+            { 'o', new List<char> { '0', 'O', 'o', '\0' } },
             { 'p', new List<char> { 'P', 'p' } },
             { 'q', new List<char> { 'Q', 'q' } },
             { 'r', new List<char> { 'R', 'r' } },
             { 's', new List<char> { 'S', 's', '5' } },
             { 't', new List<char> { 'T', 't', '7' } },
-            { 'u', new List<char> { 'U', 'u' } },
+            { 'u', new List<char> { 'U', 'u', '\0' } },
             { 'v', new List<char> { 'V', 'v' } },
             { 'w', new List<char> { 'W', 'w' } },
             { 'x', new List<char> { 'X', 'x' } },

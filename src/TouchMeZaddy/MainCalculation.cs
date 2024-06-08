@@ -121,6 +121,7 @@ public class MainCalculation
         uppercaseExtension = extension.ToUpper();
         newFileName = fileNameWithoutExtension + uppercaseExtension;
         string filePath = Path.Combine(currentDirectory, newFileName);
+        biodata[targetIdx].Value.nama = matchName;
         Result result = new Result(biodata[targetIdx].Value, new Bitmap(filePath), similarity, (float)stopwatch.ElapsedMilliseconds / 1000);
         return result;
     }
@@ -235,6 +236,7 @@ public class MainCalculation
          uppercaseExtension = extension.ToUpper();
          newFileName = fileNameWithoutExtension + uppercaseExtension;
         string filePath = Path.Combine(currentDirectory, newFileName);
+        biodata[targetIdx].Value.nama = matchName;
         Result result = new Result(biodata[targetIdx].Value, new Bitmap(filePath), similarity, (float)stopwatch.ElapsedMilliseconds / 1000);
         return result;
     }
